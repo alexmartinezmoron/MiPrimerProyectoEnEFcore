@@ -10,7 +10,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Conexion con la bbdd
 builder.Services.AddDbContext<ApplicationDbContext>(opciones => opciones.UseSqlServer("name=DefaultConnection"));
+
+// Automapper
+builder.Services.AddAutoMapper(typeof(Program));
+
 
 var app = builder.Build();
 

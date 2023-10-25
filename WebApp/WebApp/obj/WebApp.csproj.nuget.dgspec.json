@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alexander\\OneDrive\\Escritorio\\CSharp\\WebApp\\WebApp\\WebApp.csproj": {}
+    "C:\\Users\\Alexander\\OneDrive\\Documentos\\GitHub\\VideoClubEFCore\\WebApp\\WebApp\\WebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alexander\\OneDrive\\Escritorio\\CSharp\\WebApp\\WebApp\\WebApp.csproj": {
+    "C:\\Users\\Alexander\\OneDrive\\Documentos\\GitHub\\VideoClubEFCore\\WebApp\\WebApp\\WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alexander\\OneDrive\\Escritorio\\CSharp\\WebApp\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\Alexander\\OneDrive\\Documentos\\GitHub\\VideoClubEFCore\\WebApp\\WebApp\\WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "C:\\Users\\Alexander\\OneDrive\\Escritorio\\CSharp\\WebApp\\WebApp\\WebApp.csproj",
+        "projectPath": "C:\\Users\\Alexander\\OneDrive\\Documentos\\GitHub\\VideoClubEFCore\\WebApp\\WebApp\\WebApp.csproj",
         "packagesPath": "C:\\Users\\Alexander\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alexander\\OneDrive\\Escritorio\\CSharp\\WebApp\\WebApp\\obj\\",
+        "outputPath": "C:\\Users\\Alexander\\OneDrive\\Documentos\\GitHub\\VideoClubEFCore\\WebApp\\WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Alexander\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.13, )"
