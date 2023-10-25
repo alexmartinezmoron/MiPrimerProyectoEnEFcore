@@ -12,5 +12,8 @@ namespace WebApp.Entidades
 
         [StringLength(maximumLength: 150)]
         public string Nombre { get; set; } = null!;
+
+        // Relaciones
+        public HashSet<Pelicula> Peliculas { get; set; } = new HashSet<Pelicula>();
     }
 }

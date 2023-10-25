@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using WebApp.Entidades;
 
 namespace WebApp
@@ -17,18 +18,16 @@ namespace WebApp
             // utilizamos el api fluente para establecer la PK pero como por convencion el usar Id no es necesario lo dejamos comentado solo como ejemplo
             // modelBuilder.Entity<Genero>().HasKey(g => g.Id);
 
+            // en este caso vamos a utilizar el api fliente para establecer el maximo de arracteres en lugar de un atributo en la propia clase        
 
-            // en este caso vamos a utilizar el api fliente para establecer el maximo de arracteres en lugar de un atributo en la propia clase
-            modelBuilder.Entity<Actor>().Property(a => a.Nombre).HasMaxLength(150);
-            modelBuilder.Entity<Actor>().Property(a => a.FechaNacimiento).HasColumnType("date");
-
-            // la precision va a ser de 18 digitos con solo 2 decimales
-            modelBuilder.Entity<Actor>().Property(a => a.Fortuna).HasPrecision(18, 2);
-
-            modelBuilder.Entity<Pelicula>().Property(a => a.Titulo).HasMaxLength(150);
+          //modelBuilder.Entity<Pelicula>().Property(a => a.Titulo).HasMaxLength(150);
             modelBuilder.Entity<Pelicula>().Property(a => a.Fechaestreno).HasColumnType("date");
 
-            modelBuilder.Entity<Comentario>().Property(c => c.Contenido).HasMaxLength(150);
+            modelBuilder.Entity<Comentario>().Property(c => c.Contenido).HasMaxLength(500);
+
+
+            // aplicamos todas las configuraciones de un Asembly o Proyecto, por lo que buscara desde la carpeta raiz y aplicara todas las configuraciones de IEntityTypeConfiguration
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
         }
 
@@ -43,5 +42,6 @@ namespace WebApp
         public DbSet<Actor> Actores => Set<Actor>();
         public DbSet<Pelicula> Peliculas => Set<Pelicula>();
         public DbSet<Comentario> Comentarios => Set<Comentario>();
+        public DbSet<PeliculaActor> PeliculasActores => Set<PeliculaActor>();
     }
 }

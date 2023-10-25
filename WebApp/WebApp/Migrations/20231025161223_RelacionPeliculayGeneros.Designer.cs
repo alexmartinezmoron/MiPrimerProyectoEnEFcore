@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp;
 
@@ -11,9 +12,11 @@ using WebApp;
 namespace WebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231025161223_RelacionPeliculayGeneros")]
+    partial class RelacionPeliculayGeneros
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,29 +132,6 @@ namespace WebApp.Migrations
                     b.ToTable("Peliculas");
                 });
 
-            modelBuilder.Entity("WebApp.Entidades.PeliculaActor", b =>
-                {
-                    b.Property<int>("ActorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PeliculaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Orden")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Personaje")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.HasKey("ActorId", "PeliculaId");
-
-                    b.HasIndex("PeliculaId");
-
-                    b.ToTable("PeliculasActores");
-                });
-
             modelBuilder.Entity("GeneroPelicula", b =>
                 {
                     b.HasOne("WebApp.Entidades.Genero", null)
@@ -178,35 +158,9 @@ namespace WebApp.Migrations
                     b.Navigation("Pelicula");
                 });
 
-            modelBuilder.Entity("WebApp.Entidades.PeliculaActor", b =>
-                {
-                    b.HasOne("WebApp.Entidades.Actor", "Actor")
-                        .WithMany("PeliculasActores")
-                        .HasForeignKey("ActorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebApp.Entidades.Pelicula", "Pelicula")
-                        .WithMany("PeliculasActores")
-                        .HasForeignKey("PeliculaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Actor");
-
-                    b.Navigation("Pelicula");
-                });
-
-            modelBuilder.Entity("WebApp.Entidades.Actor", b =>
-                {
-                    b.Navigation("PeliculasActores");
-                });
-
             modelBuilder.Entity("WebApp.Entidades.Pelicula", b =>
                 {
                     b.Navigation("Comentarios");
-
-                    b.Navigation("PeliculasActores");
                 });
 #pragma warning restore 612, 618
         }
