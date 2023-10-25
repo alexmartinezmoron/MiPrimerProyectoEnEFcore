@@ -1,5 +1,10 @@
 Comandos basicos:
 
-Add-Migration Inicial
+  Add-Migration pepepepe
+  update-database
 
-update-database
+Atajos visual Studio 2022:
+
+  control + shift + b = compilar
+  alt+f5 = ejecutar
+  control + . = alluda
