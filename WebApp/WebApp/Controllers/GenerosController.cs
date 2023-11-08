@@ -37,7 +37,7 @@ namespace WebApp.Controllers
         }
 
 
-        // Tambien podemos postear y mapear varios con una collecion en ese caso tendremos que utilizar AddRange
+        // Tambien podemos postear y mapear varios registros  con una collecion en ese caso tendremos que utilizar AddRange
         [HttpPost("varios")]
         public async Task<ActionResult> Post(GeneroCreacionDTO[] generosCreacionDTO)
         {
