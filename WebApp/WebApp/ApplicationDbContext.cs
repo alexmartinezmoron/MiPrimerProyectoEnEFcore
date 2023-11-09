@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using WebApp.Entidades;
+using WebApp.Entidades.Seeding;
 
 namespace WebApp
 {
@@ -28,6 +29,9 @@ namespace WebApp
 
             // aplicamos todas las configuraciones de un Asembly o Proyecto, por lo que buscara desde la carpeta raiz y aplicara todas las configuraciones de IEntityTypeConfiguration
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            // Lanzamos un seed con una carga de datos inicial para poder jugar con la bbdd
+            SeedingInicial.Seed(modelBuilder);
 
         }
 

@@ -24,7 +24,7 @@ namespace WebApp.Controllers
         {
             var pelicula = mapper.Map<Pelicula>(peliculaCreacionDTO);
 
-            if (pelicula.Generos is not null) 
+            if (pelicula.Generos is not null)
             {
                 foreach (var genero in pelicula.Generos)
                 {
@@ -34,7 +34,7 @@ namespace WebApp.Controllers
 
             if (pelicula.PeliculasActores is not null)
             {
-                for (var i = 0; i < pelicula.PeliculasActores.Count; i++)
+                for (int i = 0; i < pelicula.PeliculasActores.Count; i++)
                 {
                     pelicula.PeliculasActores[i].Orden = i + 1;
                 }

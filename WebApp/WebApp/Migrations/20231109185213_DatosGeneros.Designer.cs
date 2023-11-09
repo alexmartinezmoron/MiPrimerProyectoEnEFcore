@@ -12,8 +12,8 @@ using WebApp;
 namespace WebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231025162654_RelacionPeliculasActores")]
-    partial class RelacionPeliculasActores
+    [Migration("20231109185213_DatosGeneros")]
+    partial class DatosGeneros
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -105,7 +105,22 @@ namespace WebApp.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Nombre")
+                        .IsUnique();
+
                     b.ToTable("Generos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 5,
+                            Nombre = "Ciencia Ficción"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Nombre = "Animación"
+                        });
                 });
 
             modelBuilder.Entity("WebApp.Entidades.Pelicula", b =>
