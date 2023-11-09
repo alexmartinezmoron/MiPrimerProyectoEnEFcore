@@ -9,4 +9,7 @@ Configuramos las relaciones basicas  en las entidades 1:n n:n y n:n con entidad 
 
 Creamos DTOs y añadimos automapper salvo que no es una clase abtracta sino que lo descargamos desde el NuGet.
 
-Creamos nuevo post en el cual vamos a mappear y postear colleciones
+Creamos nuevo post en el cual vamos a mappear y postear colleciones.
+
+Creamos post con relaciones intermedias.
+Creamos un Seeding inicial para la carga de datos en la bbdd.
