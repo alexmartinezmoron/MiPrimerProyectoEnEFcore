@@ -10,6 +10,7 @@ namespace WebApp.Utilidades
         {
             CreateMap<GeneroCreacionDTO, Genero>();
             CreateMap<ActorCreacionDTO, Actor>();
+            CreateMap<ActorDTO, Actor>();
             CreateMap<ComentarioCreacionDTO, Comentario>();
 
 
