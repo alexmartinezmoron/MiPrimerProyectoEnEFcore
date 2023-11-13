@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApp.DTOs;
 using WebApp.Entidades;
 
@@ -33,7 +34,7 @@ namespace WebApp.Controllers
             context.Add(genero);
             await context.SaveChangesAsync();
             return Ok();
-        
+
         }
 
 
@@ -41,13 +42,20 @@ namespace WebApp.Controllers
         [HttpPost("varios")]
         public async Task<ActionResult> Post(GeneroCreacionDTO[] generosCreacionDTO)
         {
-       
+
             var generos = mapper.Map<Genero[]>(generosCreacionDTO);
 
             context.AddRange(generos);
             await context.SaveChangesAsync();
             return Ok();
 
+        }
+
+        // Get donde en el retorno el contexto de genero en una lista
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Genero>>> Get()
+        { 
+            return await context.Generos.ToListAsync();
         }
     }
 }

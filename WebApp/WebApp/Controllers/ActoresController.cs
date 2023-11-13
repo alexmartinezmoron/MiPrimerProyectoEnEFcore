@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApp.DTOs;
 using WebApp.Entidades;
 
@@ -43,5 +44,39 @@ namespace WebApp.Controllers
             return Ok();
 
         }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Actor>>> Get()
+        {
+            return await context.Actores.ToListAsync();
+        }
+
+        [HttpGet ("nombre")]
+        public async Task<ActionResult<IEnumerable<Actor>>> Get(string nombre)
+
+        {
+            // Version con uno utilizando equals
+            return await context.Actores.Where(a => a.Nombre == nombre).ToListAsync();
+        }
+
+        [HttpGet("nombre/V2")]
+        public async Task<ActionResult<IEnumerable<Actor>>> GetV2(string nombre)
+
+        {
+            // Version con uno utilizando contains
+            return await context.Actores.Where(a => a.Nombre.Contains(nombre)).ToListAsync();
+        }
+
+
+        // vamos a utilizar operradoner en la consulta como and u or
+        [HttpGet("fechaNacimiento/rango")]
+        public async Task<ActionResult<IEnumerable<Actor>>> Get(DateTime inicio, DateTime fin)
+
+        {
+            // Version con and
+            return await context.Actores.Where(a => a.FechaNacimiento >= inicio && a.FechaNacimiento <= fin).ToListAsync();
+        }
+
+
     }
 }
