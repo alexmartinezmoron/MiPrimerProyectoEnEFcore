@@ -147,7 +147,7 @@ namespace WebApp.Controllers
         public async Task<ActionResult<IEnumerable<ActorDTO>>> GetIdYNombreDtomapper()
         {
             return await context.Actores
-                                .ProjectTo<ActorDTO>(mapper.ConfigurationProvider)
+                                .ProjectTo<ActorDTO>(mapper.ConfigurationProvider) // configurationProvider ya que en automapperProfiles he definido el mappeo
                                 .ToListAsync();
 
         }
