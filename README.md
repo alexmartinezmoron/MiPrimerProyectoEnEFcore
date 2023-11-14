@@ -13,3 +13,6 @@ Creamos nuevo post en el cual vamos a mappear y postear colleciones.
 
 Creamos post con relaciones intermedias.
 Creamos un Seeding inicial para la carga de datos en la bbdd.
+
+Creamos gets para realizar querys, las cuales vamos poco a poco haciendolas mas complejas y utilizando criterios de ordenacion.
+Cremos gets con querys incluyendo joins de tablas y ademas controlamos las relaciones circulares.
